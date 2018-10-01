@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="img/Settings.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="js/Croppie-2.6.2/croppie.min.js"></script>
+    <script src="js/exif/exif.js"></script>
+    <script src="js/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link rel="stylesheet" href="js/Croppie-2.6.2/croppie.css">
+    <link rel="stylesheet" href="css/settingsStyles.css">
+    <title>Configuración</title>
+</head>
+<body>
+    <script src="js/validation.js"></script>
+    <div class="modal fade" id="ImgCropModal" tabindex="-1" role="dialog" aria-labelledby="ImgCrop" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Cambiar Foto de Perfil</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="CropModal" style="width:300px"></div>
+                </div>
+                <div class="modal-footer">
+                    <label data-dismiss="modal" class="upload crop_image"><i class="fas fa-upload"></i> Subir Foto</label>
+                    <label data-dismiss="modal" class="cancel">Cancelar</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>  
+        $(document).ready(function(){
+            $image_crop = $('#CropModal').croppie({
+            enableExif: true,
+            enableZoom: true,
+            mouseWheelZoom: true,
+            showZoomer: false,
+            viewport: {
+                width:300,
+                height:300,
+                type:'circle'
+            },
+            boundary:{
+                width:466,
+                height:300
+            }
+            });
+            
+            $('#img-uploader').on('change', function(){
+                var reader = new FileReader();
+                reader.onload = function (event) {
+                    $image_crop.croppie('bind', {
+                        url: event.target.result
+                })
+                }
+                reader.readAsDataURL(this.files[0]);
+                $('#ImgCropModal').modal('show');
+                });
+            
+                $('.crop_image').click(function(event){
+                    $image_crop.croppie('result', {
+                        type: 'canvas',
+                        size: 'viewport'
+                }).then(function(response){
+                    $('#ImgCropModal').modal('hide');
+                    // $.ajax({
+                    //     url:"upload.php",
+                    //     type: "POST",
+                    //     data:{"image": response},
+                    //     success:function(data)
+                    // {
+                    //   $('#ImgCropModal').modal('hide');
+                    // }
+                    // });
+                    })
+                });
+            });  
+    </script>
+    <nav class="navbar navbar-expand-md navbar-light">
+        <div class="container">
+            <p class="navbar-brand"><a href="../forum/forum.html"><i class="fas fa-arrow-circle-left"></i></a><span>CONFIGURACIÓN</span></p>
+            <button class="navbar-toggler ml-auto" data-toggle="collapse" data-target="#Menu-Container" aria-controls="Menu-Container"
+                aria-expanded="false" aria-label="Menú">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="Menu-Container">
+                <ul class="navbar-nav">
+                    <li class="nav-item NP-Opt">
+                        <p class="items nav-link f-child NP"><i class="fas fa-id-card"></i> INFORMACIÓN PERSONAL</p>
+                    </li>
+                    <li class="nav-item NU-Opt">
+                        <p class="items nav-link NU" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i> NOMBRE DE USUARIO</p>
+                    </li>
+                    <li class="nav-item CE-Opt">
+                        <p class="items nav-link CE"><i class="fas fa-envelope"></i> CORREO ELECTRÓNICO</p>
+                    </li>
+                    <li class="nav-item CS-Opt">
+                        <p class="items nav-link CS"><i class="fas fa-lock"></i> CONTRASEÑA</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <script src="js/panel.js"></script>
+    <main class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 col-md-5 Panel">
+                <div class="header">
+                    <h1>Configuración</h1>
+                </div>
+                <div class="panel-options">
+                    <section>
+                        <div class="img-profile">
+                            <img src="" alt="">
+                        </div>
+                        <label for="img-uploader" class="change-img">Cambiar foto de perfil</label>
+                        <form action="" method="get" class="img-uploader-form">
+                            <input type="file" name="img-uploader" id="img-uploader" accept="image/*">
+                        </form>
+                    </section>
+                    <section class="form-options">
+                        <div class="options NP-Opt">
+                            <p class="items NP"><i class="fas fa-id-card"></i> DATOS PERSONALES</p>
+                        </div>
+                        <div class="options NU-Opt">
+                            <p class="items NU"><i class="fas fa-user"></i> NOMBRE DE USUARIO</p>
+                        </div>
+                        <div class="options CE-Opt">
+                            <p class="items CE"><i class="fas fa-envelope"></i> CORREO ELECTRÓNICO</p>
+                        </div>
+                        <div class="options CS-Opt">
+                            <p class="items CS"><i class="fas fa-lock"></i> CONTRASEÑA</p>
+                        </div>
+                    </section>
+                    <footer>
+                        <a href="../forum/forum.html"><i class="far fa-arrow-alt-circle-left"></i></a>
+                    </footer>
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-7 col-sm-12 Forms">
+                <div class="PIForm">
+                    <h1>DATOS PERSONALES</h1>
+                    <p class="initial-name"></p>
+                    <p class="rename">Cambiar nombre</p>
+                    <form action="" method="get" class="NPRename" onsubmit="return NameVal()">
+                        <input type="text" class="NewName" id="NewName" placeholder="Introduzca su nombre">
+                        <button type="submit" class="btn agree-btn" id="agree-rename"><i class="fas fa-check"></i></button>
+                        <button type="button" class="btn cancel-btn" id="cancel-rename"><i class="fas fa-times"></i></button>
+                    </form>
+                    
+                    <p class="img-caption"><i class="fas fa-images"></i> Ver o Cambiar Foto de Perfil</p>
+                    <div class="img-profile img-profile-m">
+                        <img src="img/ImgProfile.png" alt="">
+                    </div>
+                    <label for="img-uploader" class="change-img change-img-m">Cambiar foto de perfil</label>
+                    <form action="" method="get" class="img-form">
+                        <input type="file" name="img-uploader" id="img-uploader" accept="image/*">
+                        <button type="submit" class="btn agree-btn" id="agree-img"><i class="fas fa-check"></i></button>
+                        <button type="button" class="btn cancel-btn" id="cancel-img"><i class="fas fa-times"></i></button>
+                    </form>
+                    <p class="bio-caption"><i class="far fa-edit"></i> Agregar o Cambiar Biografía</p>
+                    <form action="" method="get" class="BioForm" onsubmit="return BioVal()">
+                        <textarea name="" id="biography"></textarea>
+                        <button type="submit" class="btn agree-btn" id="agree-bio"><i class="fas fa-check"></i></button>
+                        <button type="button" class="btn cancel-btn" id="cancel-bio"><i class="fas fa-times"></i></button>
+                    </form>
+                    <p class="website-caption"><i class="far fa-edit"></i> Agregar o Cambiar Sitio Web</p>
+                    <form action="" method="get" class="WebsiteForm" onsubmit="return WebVal()">
+                        <input type="text" class="Website" id="Website" placeholder="Introduzca su Sitio Web">
+                        <button type="submit" class="btn agree-btn" id="agree-website"><i class="fas fa-check"></i></button>
+                        <button type="button" class="btn cancel-btn" id="cancel-website"><i class="fas fa-times"></i></button>
+                    </form>
+                </div>
+                <div class="UsernameForm">
+                    <h1>NOMBRE DE USUARIO</h1>
+                    <p class="initial-username"></p>
+                    <p class="change-username">Cambiar Nombre de Usuario</p>
+                    <form action="" method="get" class="UsernameFormCont" onsubmit="return UserVal()">
+                        <input type="text" class="NewUsername" id="NewUsername" placeholder="Introduzca su nombre de usuario">
+                        <button type="submit" class="btn agree-btn" id="agree-username"><i class="fas fa-check"></i></button>
+                        <button type="button" class="btn cancel-btn" id="cancel-username"><i class="fas fa-times"></i></button>
+                    </form>
+                </div>
+                <div class="EmailForm">
+                    <h1>CORREO ELECTRÓNICO</h1>
+                    <p class="initial-email"></p>
+                    <p class="change-email">Cambiar Correo Electrónico</p>
+                    <form action="" method="get" class="EmailFormCont" onsubmit="return EmailVal()">
+                        <input type="text" class="NewEmail" id="NewEmail" placeholder="Introduzca su correo electrónico">
+                        <button type="submit" class="btn agree-btn" id="agree-email"><i class="fas fa-check"></i></button>
+                        <button type="button" class="btn cancel-btn" id="cancel-email"><i class="fas fa-times"></i></button>
+                    </form>
+                </div>
+                <div class="PassForm">
+                    <h1>CONTRASEÑA</h1>
+                    <input type="password" readonly class="initial-password" value="">
+                    <p class="change-password">Cambiar Contraseña</p>
+                    <form action="" method="POST" class="PassFormCont" onsubmit="return PassVal()">
+                        <input type="password" class="NewPass" id="NewPass1" placeholder="Introduzca su nueva contraseña">
+                        <input type="password" class="NewPass" id="NewPass2" placeholder="Confirme su contraseña">
+                        <button type="submit" class="btn agree-btn" id="agree-pass"><i class="fas fa-check"></i></button>
+                        <button type="button" class="btn cancel-btn" id="cancel-pass"><i class="fas fa-times"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,524 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,600,700');
+/* font-family: 'Poppins', sans-serif; */
+
+body{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100;
+    background-color: #f2f2f2;
+}
+nav{
+    background: rgba(199,232,239, 0.5);
+    display: none!important;
+}
+nav .navbar-brand{
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    opacity: 0.4;
+    position: relative;
+    top: 9px;
+}
+nav .navbar-brand i{
+    padding-right: 15px;
+    font-size: 30px;
+    color: #16457E;
+    position: relative;
+    top: 4px;
+}
+nav .navbar-collapse .nav-item{
+    border: none!important;
+}
+nav .navbar-collapse .nav-item p{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+nav .navbar-collapse .nav-item .f-child{
+    color: #00aced;
+}
+nav .navbar-collapse .nav-item p:hover{
+    color: #00ace0!important;
+    transition: all 0.4s ease-in;
+}
+nav .navbar-collapse .nav-item p i{
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+main .Panel{
+    background: rgba(199,232,239, 0.5);
+    height: 100vh;
+    padding: 0;
+    -webkit-box-shadow: 4px 0px 10px 1px rgba(0,0,0,0.1);
+    -moz-box-shadow: 4px 0px 10px 1px rgba(0,0,0,0.1);
+    box-shadow: 4px 0px 10px 1px rgba(0,0,0,0.1);
+    z-index: 2;
+}
+main .Panel .header h1{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 25px;
+    text-align: center;
+    margin-top: 35px;
+    color: rgba(0, 0, 0, 0.3)
+}
+main .img-profile{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+main .img-profile img{
+    width: 150px;
+    height: 150px;
+    border-radius: 100px;
+}
+main .change-img{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.4);
+    text-align: center!important;
+    margin-top: 10px;
+    cursor: pointer;
+    display: block;
+}
+/* main .Panel .panel-options section #img-profile-selector{
+    
+} */
+main .Panel .panel-options .form-options{
+    margin-top: 30px;
+}
+main .Panel .panel-options .form-options .options{
+    height: 35px;
+    margin-bottom: 25px;
+    cursor: pointer;
+    transition: all 0.4s ease-in;
+}
+main .Panel .panel-options .form-options .options p{
+    line-height: 35px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.4);
+    transition: all 0.5s ease-in;
+}
+
+/* Selección Inicial */
+main .Panel .panel-options .form-options .NP-Opt{
+    border-left: 4px solid #00aced;
+}
+main .Panel .panel-options .form-options .options .NP{
+    color: #00aced
+}
+
+main .Panel .panel-options .form-options .options p i{
+    line-height: 35px;
+    font-size: 18px;
+    position: absolute;
+    left: 25px;
+}
+main .Panel .panel-options footer{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+main .Panel .panel-options footer a{
+    text-decoration: none;
+}
+main .Panel .panel-options footer i{
+    font-size: 50px;
+    color: rgba(29,41,81, 0.2)
+}
+main .Panel .panel-options footer i:hover{
+    color: rgba(0,172,237,0.4);
+    transition: all 0.4s ease-in;
+}
+main .Forms{
+    background: #f2f2f2;
+}
+
+/* Formularios */
+main .Forms{
+    background: url(../img/BG-Options/NPBG.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+main .Forms .PIForm{
+    width: 100%;
+    padding: 100px 0 0 40px!important;
+}
+main .Forms .PIForm h1{
+    font-family: 'Poppins', sans-serif;
+    font-size: 60px;
+    font-weight: 600;
+    color: #006DF0;
+}
+main .Forms .PIForm .initial-name{
+    padding-top: 20px;
+    padding-left: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 25px;
+    font-weight: 600;
+    color: #16457E;
+    border-bottom: 4px solid #C0C0C0;
+    width: 65%;
+}
+main .Forms .PIForm .rename{
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #006DF0;
+    cursor: pointer;
+}
+
+/* Inputs */
+main .Forms .PIForm .NPRename{
+    display: none;
+}
+main .Forms input{
+    width: 65%;
+    display: block;
+    padding-left: 15px;
+    padding-top: 20px;
+    font-family: 'Poppins', sans-serif, fontawesome;
+    font-size: 25px;
+    font-weight: 600;
+    color: #16457E;
+    background: none;
+    border: none;
+    border-bottom: 4px solid #C0C0C0;
+}
+main .Forms input::placeholder{
+    color: #d3d3d3;
+}
+main .Forms input:focus{
+    outline: none;
+}
+
+/* Buttons */
+main .Forms .img-profile, .img-form{
+    display: flex!important;
+    justify-content: center!important;
+}
+main .Forms form button{
+    width: 100px;
+    background: none;
+    border-radius: 50px;
+    border: 2px solid;
+    margin: 25px 15px 0 0;
+    font-size: 16px;
+    height: 30px;
+    line-height: 15px;
+}
+main .Forms form .agree-btn{
+    border-color: #00aced;
+    color: #00aced;
+}
+main .Forms form .cancel-btn{
+    border-color: #ff4c4c;
+    color: #ff4c4c;
+}
+
+main .Forms form .agree-btn:hover{
+    background: #00aced;
+    color: #fff;
+    transition: all 0.4s ease-in;
+}
+main .Forms form .cancel-btn:hover{
+    background: #ff4c4c;
+    color: #fff;
+    transition: all 0.4s ease-in;
+}
+main .Forms form button:focus{
+    outline: none;
+}
+
+/* IMG PROFILE MOBILE VERSION */
+main .Forms .PIForm .img-form{
+    display: none!important;
+}
+main .Forms .PIForm .img-caption{
+    padding-top: 10px;
+    display: none!important;
+}
+main .Forms .PIForm .change-img{
+    display: none!important;
+}
+main .Forms .PIForm .img-profile-m{
+    display: none!important;
+}
+/* Biography / Website */
+main .Forms .PIForm, .img-caption .website-caption, .bio-caption{
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #006DF0;
+    cursor: pointer;
+}
+main .Forms .PIForm .BioForm{
+    display: none;
+}
+main .Forms .PIForm .BioForm textarea{
+    display: block;
+    resize: none;
+    background: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #16457E;
+    width: 65%;
+    height: 150px;
+    border-radius: 30px;
+    border: 2px solid #006DF0;
+    padding: 20px;
+    overflow: hidden;
+}
+main .Forms .PIForm .BioForm textarea:focus{
+    outline: none;
+}
+
+/* Website */
+main .Forms .PIForm .WebsiteForm{
+    display: none;
+}
+
+/* USERNAME */
+main .Forms .UsernameForm{
+    width: 100%;
+    padding: 100px 0 0 40px;
+    display: none;
+}
+main .Forms .UsernameForm .UsernameFormCont{
+    display: none;
+}
+main .Forms .UsernameForm h1{
+    font-family: 'Poppins', sans-serif;
+    font-size: 60px;
+    font-weight: 600;
+    color: #006DF0;
+}
+main .Forms .UsernameForm .initial-username{
+    padding-top: 20px;
+    padding-left: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 25px;
+    font-weight: 600;
+    color: #16457E;
+    border-bottom: 4px solid #C0C0C0;
+    width: 65%;
+}
+main .Forms .UsernameForm .change-username{
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #006DF0;
+    cursor: pointer;
+}
+
+/* EMAIL */
+main .Forms .EmailForm{
+    width: 100%;
+    padding: 100px 0 0 40px;
+    display: none;
+}
+main .Forms .EmailForm .EmailFormCont{
+    display: none;
+}
+main .Forms .EmailForm h1{
+    font-family: 'Poppins', sans-serif;
+    font-size: 60px;
+    font-weight: 600;
+    color: #006DF0;
+}
+main .Forms .EmailForm .initial-email{
+    padding-top: 20px;
+    padding-left: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 25px;
+    font-weight: 600;
+    color: #16457E;
+    border-bottom: 4px solid #C0C0C0;
+    width: 65%;
+}
+main .Forms .EmailForm .change-email{
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #006DF0;
+    cursor: pointer;
+}
+
+/* Password */
+main .Forms .PassForm{
+    width: 100%;
+    padding: 100px 0 0 40px;
+    display: none;
+}
+main .Forms .PassForm .PassFormCont{
+    display: none;
+}
+main .Forms .PassForm h1{
+    font-family: 'Poppins', sans-serif;
+    font-size: 60px;
+    font-weight: 600;
+    color: #006DF0;
+}
+main .Forms .PassForm .initial-password{
+    margin-bottom: 16px;    
+}
+main .Forms .PassForm .change-password{
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #006DF0;
+    cursor: pointer;
+}
+
+/* Modal Window */
+#img-uploader{
+    display: none;
+}
+.modal .modal-content .modal-header .modal-title{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    text-align: center;
+    font-size: 16px;
+    color: darkgrey;
+}
+.modal .modal-content .modal-footer label{
+    display: inline-block;
+    margin-top: 5px;
+    padding: 5px 20px;
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    background-color: #f8f8f8;
+    cursor: pointer;
+}
+.modal .modal-content .modal-footer .upload{
+    color: #006DF0;
+}
+.modal .modal-content .modal-footer .upload i{
+    padding-right: 5px;
+    font-size: 14px;
+}
+.modal .modal-content .modal-footer .cancel{
+    color: #ff4c4c;
+}
+
+/* Resposive Menu */
+@media screen and (max-width: 1180px){
+    main .Panel .form-options .options p{
+        font-size: 14px!important;
+    }
+    main .Forms{
+        background: none;
+    }
+}
+/* @media screen and (max-width: 1090px){
+    main .Panel .form-options .options p{
+        font-size: 12px!important;
+    }
+} */
+@media screen and (max-width: 991px){
+    main .Panel .form-options .options p{
+        font-size: 16px!important;
+    }
+    main .Forms input{
+        width: 100%!important;
+        padding-left: 0;
+    }
+    main .Forms .PIForm h1{
+        font-size: 50px;
+    }
+    main .Forms .PIForm .initial-name{
+        width: 100%;
+        padding-left: 0;
+    }
+    main .Forms .PIForm .BioForm textarea{
+        width: 100%!important;
+    }
+    main .Forms .UsernameForm h1{
+        font-size: 50px;
+    }
+    main .Forms .UsernameForm .initial-username{
+        width: 100%;
+        padding-left: 0;
+    }
+    main .Forms .EmailForm h1{
+        font-size: 50px;
+    }
+    main .Forms .EmailForm .initial-email{
+        width: 100%;
+        padding-left: 0;
+    }
+    main .Forms .PassForm h1{
+        font-size: 50px;
+    }
+    main .Forms .PIForm, .UsernameForm, .EmailForm, .PassForm{
+        padding: 100px 40px 0 40px!important;
+    }
+}
+@media screen and (max-width: 767px){
+    nav{
+        display: block!important;
+    }
+    main .Panel{
+        display: none;
+    }
+    /* FORMS */
+    main .Forms .PIForm, .UsernameForm, .EmailForm, .PassForm{
+        padding: 30px 20px 0 20px!important;
+    }
+    main .Forms .PIForm h1{
+        font-size: 40px;
+    }
+    main .Forms .UsernameForm h1{
+        font-size: 40px;
+    }
+    main .Forms .EmailForm h1{
+        font-size: 40px;
+    }
+    main .Forms .PassForm h1{
+        font-size: 40px;
+    }
+    main .Forms .PIForm .img-caption{
+        display: block!important;
+    }
+}
+
+@media screen and (max-width: 600px){
+    main .Forms input{
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 455px){
+    main .Forms input{
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 388px){
+    main .Forms input::placeholder{
+        font-size: 16px;
+    }
+}
+@media screen and (max-width: 345px){
+    nav .navbar-brand{
+        font-size: 18px;
+    }
+    nav .navbar-brand i{
+        font-size: 25px;
+    }
+}
